@@ -1,135 +1,35 @@
-// ==========================================================================
-// CHEEZI UP — script.js
-// ==========================================================================
-
-// IMPORTANT: replace this with your real WhatsApp number (country code, no + or spaces)
-// e.g. Pakistan number 0300-1234567 becomes "923001234567"
-const WHATSAPP_NUMBER = "923106044622";
-
-/* ---------- Real photo fallback ----------
-   Every menu item and the hero try to load a real photo from /images/.
-   If that photo file doesn't exist yet, this swaps in the built-in
-   illustrated placeholder instead of leaving an empty box.
-   Called directly from onerror="" attributes in index.html. */
-function handleImgError(imgEl) {
-  imgEl.style.display = 'none';
-  const fallback = imgEl.nextElementSibling;
-  if (fallback) fallback.style.display = 'block';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  setYear();
-  initNavToggle();
-  initMenuTabs();
-  initOrderButtons();
-  initScrollReveal();
-  initBackToTop();
-});
-
-/* ---------- Footer year ---------- */
-function setYear() {
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-}
-
-/* ---------- Mobile nav toggle ---------- */
-function initNavToggle() {
-  const toggle = document.getElementById('navToggle');
-  const nav = document.getElementById('nav');
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-/* ---------- Menu category tabs ---------- */
-function initMenuTabs() {
-  const tabs = document.querySelectorAll('.tab');
-  const cards = document.querySelectorAll('.item-card');
-  if (!tabs.length || !cards.length) return;
-
-  function showCategory(category) {
-    cards.forEach((card) => {
-      card.classList.toggle('show', card.dataset.category === category);
-    });
-  }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      tabs.forEach((t) => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-      showCategory(tab.dataset.category);
-    });
-  });
-
-  // Show the first category (Pizza) by default
-  showCategory(tabs[0].dataset.category);
-}
-
-/* ---------- Per-item WhatsApp order buttons ---------- */
-function initOrderButtons() {
-  const buttons = document.querySelectorAll('.btn-order');
-  if (!buttons.length) return;
-
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const item = btn.dataset.item || 'an item';
-      const price = btn.dataset.price || '';
-      const message = `Hi CHEEZI UP! I'd like to order: ${item} (${price}).`;
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank', 'noopener');
-    });
-  });
-}
-
-/* ---------- Scroll reveal ---------- */
-function initScrollReveal() {
-  const revealEls = document.querySelectorAll('.reveal');
-  if (!revealEls.length) return;
-
-  if (!('IntersectionObserver' in window)) {
-    revealEls.forEach((el) => el.classList.add('in-view'));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  revealEls.forEach((el) => observer.observe(el));
-}
-
-/* ---------- Back to top button ---------- */
-function initBackToTop() {
-  const btn = document.getElementById('backToTop');
-  if (!btn) return;
-
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('visible', window.scrollY > 480);
-  });
-
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
+const WHATSAPP_NUMBER = '923106044622';
+const money = (n) => `Rs. ${Math.round(n).toLocaleString()}`;
+const clean = (value) => String(value || '').replace(/[<>'"`]/g, '').trim();
+const starterProducts = [
+  {id: crypto.randomUUID(), name:'Chicken Fajita Pizza', category:'Pizza', price:1099, emoji:'🍕', available:true, featured:true},
+  {id: crypto.randomUUID(), name:'Crown Crust Pizza', category:'Pizza', price:1349, emoji:'🍕', available:true, featured:true},
+  {id: crypto.randomUUID(), name:'Special CHEEZI UP Pizza', category:'Pizza', price:1399, emoji:'🧀', available:true, featured:true},
+  {id: crypto.randomUUID(), name:'Zinger Burger', category:'Burgers', price:499, emoji:'🍔', available:true, featured:false},
+  {id: crypto.randomUUID(), name:'Special Burger', category:'Burgers', price:699, emoji:'🍔', available:true, featured:true},
+  {id: crypto.randomUUID(), name:'Loaded Fries', category:'Fries', price:449, emoji:'🍟', available:true, featured:false},
+  {id: crypto.randomUUID(), name:'Masala Fries', category:'Fries', price:299, emoji:'🍟', available:true, featured:false},
+  {id: crypto.randomUUID(), name:'Creamy Pasta', category:'Pasta', price:699, emoji:'🍝', available:true, featured:false}
+];
+let products = JSON.parse(localStorage.getItem('cheeziProducts') || 'null') || starterProducts;
+let cart = JSON.parse(localStorage.getItem('cheeziCart') || '[]');
+let orders = JSON.parse(localStorage.getItem('cheeziOrders') || '[]');
+function save(){localStorage.setItem('cheeziProducts',JSON.stringify(products));localStorage.setItem('cheeziCart',JSON.stringify(cart));localStorage.setItem('cheeziOrders',JSON.stringify(orders));}
+document.addEventListener('DOMContentLoaded',()=>{document.getElementById('year').textContent=new Date().getFullYear();setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),350);initNav();initTheme();initReveal();renderCategories();renderMenu();renderCart();renderAdmin();bindForms();});
+function initNav(){const t=document.getElementById('navToggle'),n=document.getElementById('nav');t?.addEventListener('click',()=>{const open=n.classList.toggle('open');document.body.classList.toggle('nav-open',open);t.setAttribute('aria-expanded',open)});n?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');document.body.classList.remove('nav-open');t.setAttribute('aria-expanded','false')}));const b=document.getElementById('backToTop');addEventListener('scroll',()=>b.classList.toggle('visible',scrollY>450));b?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));}
+function initTheme(){const b=document.getElementById('themeToggle');if(localStorage.theme==='dark')document.body.classList.add('dark');b.textContent=document.body.classList.contains('dark')?'☀️':'🌙';b.addEventListener('click',()=>{document.body.classList.toggle('dark');localStorage.theme=document.body.classList.contains('dark')?'dark':'light';b.textContent=document.body.classList.contains('dark')?'☀️':'🌙'});}
+function initReveal(){const els=document.querySelectorAll('.reveal,.section');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('in-view'));return}const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}}),{threshold:.12});els.forEach(e=>io.observe(e));}
+function renderCategories(){const select=document.getElementById('categoryFilter');const cats=[...new Set(products.map(p=>p.category))];select.innerHTML='<option value="all">All</option>'+cats.map(c=>`<option>${c}</option>`).join('');['searchInput','categoryFilter','priceFilter'].forEach(id=>document.getElementById(id)?.addEventListener('input',renderMenu));document.getElementById('priceFilter')?.addEventListener('input',e=>document.getElementById('priceValue').textContent=money(e.target.value));}
+function card(p){return `<article class="item-card"><div class="item-media"><span class="tag">${p.available?'Available':'Unavailable'}</span>${p.image?`<img loading="lazy" src="${clean(p.image)}" alt="${clean(p.name)}">`:p.emoji||'🍽️'}</div><div class="item-body"><h3>${clean(p.name)}</h3><p>${clean(p.category)} favorite prepared fresh with premium ingredients.</p><div class="price-row"><span class="price">${money(p.price)}</span><button class="icon-btn" ${p.available?'':'disabled'} onclick="addToCart('${p.id}')" aria-label="Add ${clean(p.name)}">＋</button><button class="icon-btn" onclick="toggleFav('${p.id}')" aria-label="Favorite">♥</button></div></div></article>`}
+function renderMenu(){const q=clean(document.getElementById('searchInput')?.value).toLowerCase();const cat=document.getElementById('categoryFilter')?.value||'all';const max=+(document.getElementById('priceFilter')?.value||9999);const filtered=products.filter(p=>(cat==='all'||p.category===cat)&&p.price<=max&&p.name.toLowerCase().includes(q));document.getElementById('menuGrid').innerHTML=filtered.map(card).join('')||'<p>No products found.</p>';document.getElementById('featuredGrid').innerHTML=products.filter(p=>p.featured).slice(0,3).map(card).join('');}
+function addToCart(id){const item=cart.find(i=>i.id===id);item?item.qty++:cart.push({id,qty:1});save();renderCart();location.hash='checkout';}
+function changeQty(id,delta){const item=cart.find(i=>i.id===id);if(!item)return;item.qty+=delta;if(item.qty<1)cart=cart.filter(i=>i.id!==id);save();renderCart();}
+function toggleFav(id){const favs=JSON.parse(localStorage.getItem('cheeziFavs')||'[]');const next=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];localStorage.setItem('cheeziFavs',JSON.stringify(next));alert('Favorites updated.');}
+function renderCart(){const wrap=document.getElementById('cartItems');wrap.innerHTML=cart.map(i=>{const p=products.find(x=>x.id===i.id);return p?`<div class="cart-row"><b>${clean(p.name)}</b><span>${money(p.price)}</span><div class="qty"><button onclick="changeQty('${i.id}',-1)">−</button><span>${i.qty}</span><button onclick="changeQty('${i.id}',1)">+</button></div></div>`:''}).join('')||'<p>Your cart is empty. Add your favorite items from the menu.</p>';const subtotal=cart.reduce((s,i)=>s+(products.find(p=>p.id===i.id)?.price||0)*i.qty,0);const discount=/^CHEEZI10$/i.test(document.getElementById('coupon')?.value||'')?subtotal*.1:0;const delivery=cart.length?120:0,tax=(subtotal-discount)*.05,total=subtotal-discount+delivery+tax;['subtotal','delivery','tax','total'].forEach(id=>document.getElementById(id).textContent=money({subtotal,delivery,tax,total}[id]));}
+function checkout(){if(!cart.length)return alert('Please add items first.');const lines=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `${i.qty} x ${p.name} - ${money(p.price*i.qty)}`});const total=document.getElementById('total').textContent;orders.unshift({id:Date.now(),status:'Pending',total,items:lines,date:new Date().toLocaleString()});save();renderAdmin();document.getElementById('confirmation').textContent='Order confirmation created. Opening WhatsApp...';window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi CHEEZI UP! New order:\n${lines.join('\n')}\nNotes: ${clean(document.getElementById('orderNotes').value)}\nTotal: ${total}`)}`,'_blank','noopener');}
+function bindForms(){document.getElementById('coupon')?.addEventListener('input',renderCart);document.getElementById('whatsappCheckout')?.addEventListener('click',checkout);document.getElementById('newsletter')?.addEventListener('submit',e=>{e.preventDefault();alert('Thank you for subscribing!')});document.getElementById('productForm')?.addEventListener('submit',saveProduct);document.getElementById('adminSearch')?.addEventListener('input',renderAdmin);document.getElementById('exportOrders')?.addEventListener('click',exportOrders);document.getElementById('settingsForm')?.addEventListener('submit',e=>{e.preventDefault();document.getElementById('contactInfo').textContent=clean(adminContact.value)||contactInfo.textContent;document.getElementById('timingInfo').textContent=clean(adminTiming.value)||timingInfo.textContent;alert('Settings saved for this session.');});}
+function saveProduct(e){e.preventDefault();const id=productId.value||crypto.randomUUID();const data={id,name:clean(productName.value),price:+productPrice.value,category:clean(productCategory.value),image:clean(productImage.value),emoji:'🍽️',available:productAvailable.checked,featured:productFeatured.checked};products=products.filter(p=>p.id!==id).concat(data);save();e.target.reset();productAvailable.checked=true;productId.value='';renderCategories();renderMenu();renderAdmin();}
+function renderAdmin(){document.getElementById('dashboardStats').innerHTML=[`<article class="panel"><b>${products.length}</b><span>Products</span></article>`,`<article class="panel"><b>${orders.length}</b><span>Orders</span></article>`,`<article class="panel"><b>${products.filter(p=>p.featured).length}</b><span>Featured</span></article>`].join('');const q=clean(document.getElementById('adminSearch')?.value).toLowerCase();adminProducts.innerHTML=products.filter(p=>p.name.toLowerCase().includes(q)).map(p=>`<div class="admin-product"><span>${p.name} · ${money(p.price)} · ${p.available?'Available':'Unavailable'}</span><span><button onclick="editProduct('${p.id}')">Edit</button><button onclick="deleteProduct('${p.id}')">Delete</button></span></div>`).join('');orderList.innerHTML=orders.map(o=>`<div class="admin-product"><span>#${o.id} ${o.total} · ${o.status}</span><button onclick="this.parentElement.querySelector('span').textContent+=' · Completed'">Complete</button></div>`).join('')||'<p>No customer orders yet.</p>';}
+function editProduct(id){const p=products.find(x=>x.id===id);if(!p)return;productId.value=p.id;productName.value=p.name;productPrice.value=p.price;productCategory.value=p.category;productImage.value=p.image||'';productAvailable.checked=p.available;productFeatured.checked=p.featured;}
+function deleteProduct(id){products=products.filter(p=>p.id!==id);cart=cart.filter(i=>i.id!==id);save();renderCategories();renderMenu();renderCart();renderAdmin();}
+function exportOrders(){const blob=new Blob([JSON.stringify(orders,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cheezi-up-orders.json';a.click();URL.revokeObjectURL(a.href);}
