@@ -1,439 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CHEEZI UP — Premium Pizza &amp; Fast Food | Dipalpur City</title>
-<meta name="description" content="CHEEZI UP — premium pizza, burgers, fries and pasta in Dipalpur City, Kasur Road. Order now on WhatsApp." />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&family=Space+Mono:wght@500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHEEZI UP — Premium Restaurant</title>
+  <meta name="description" content="CHEEZI UP is a premium modern restaurant experience serving pizzas, burgers, fries, and pasta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<!-- ============ Illustration sprite (defined once, reused as "images") ============ -->
-<svg style="display:none" aria-hidden="true">
-
-  <symbol id="img-pizza-standard" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="92" fill="#E7A94C"/>
-    <circle cx="100" cy="100" r="78" fill="url(#cheeseGrad)"/>
-    <circle cx="70" cy="70" r="10" fill="#D6402E"/><circle cx="130" cy="80" r="10" fill="#D6402E"/>
-    <circle cx="100" cy="120" r="10" fill="#D6402E"/><circle cx="65" cy="120" r="8" fill="#D6402E"/>
-    <circle cx="135" cy="125" r="8" fill="#D6402E"/>
-    <path d="M85 60 96 76 79 78Z" fill="#4C7A52"/><path d="M120 100 131 116 114 118Z" fill="#4C7A52"/>
-    <path d="M95 140 106 156 89 158Z" fill="#4C7A52"/>
-  </symbol>
-
-  <symbol id="img-pizza-loaded" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="92" fill="#E7A94C"/>
-    <circle cx="100" cy="100" r="78" fill="url(#cheeseGrad)"/>
-    <circle cx="72" cy="66" r="11" fill="#B5401E"/><circle cx="128" cy="72" r="9" fill="#B5401E"/>
-    <circle cx="100" cy="110" r="10" fill="#B5401E"/><circle cx="66" cy="118" r="9" fill="#B5401E"/>
-    <circle cx="138" cy="120" r="10" fill="#B5401E"/><circle cx="105" cy="145" r="8" fill="#B5401E"/>
-    <path d="M60 95 82 88 78 104Z" fill="#5A8A3E"/><path d="M118 60 140 55 134 72Z" fill="#5A8A3E"/>
-    <path d="M110 128 132 124 126 140Z" fill="#5A8A3E"/>
-    <ellipse cx="90" cy="90" rx="7" ry="4" fill="#F3EFE3" transform="rotate(20 90 90)"/>
-    <ellipse cx="120" cy="135" rx="7" ry="4" fill="#F3EFE3" transform="rotate(-15 120 135)"/>
-  </symbol>
-
-  <symbol id="img-pizza-crown" viewBox="0 0 200 200">
-    <path d="M100 6 C40 6 6 40 6 100 C6 160 40 194 100 194 C160 194 194 160 194 100 C194 40 160 6 100 6Z" fill="#E7A94C"/>
-    <g fill="#F4D27A">
-      <circle cx="100" cy="14" r="10"/><circle cx="136" cy="20" r="10"/><circle cx="164" cy="40" r="10"/>
-      <circle cx="182" cy="68" r="10"/><circle cx="190" cy="100" r="10"/><circle cx="182" cy="132" r="10"/>
-      <circle cx="164" cy="160" r="10"/><circle cx="136" cy="180" r="10"/><circle cx="100" cy="186" r="10"/>
-      <circle cx="64" cy="180" r="10"/><circle cx="36" cy="160" r="10"/><circle cx="18" cy="132" r="10"/>
-      <circle cx="10" cy="100" r="10"/><circle cx="18" cy="68" r="10"/><circle cx="36" cy="40" r="10"/>
-      <circle cx="64" cy="20" r="10"/>
-    </g>
-    <circle cx="100" cy="100" r="66" fill="url(#cheeseGrad)"/>
-    <circle cx="78" cy="80" r="9" fill="#D6402E"/><circle cx="122" cy="88" r="9" fill="#D6402E"/>
-    <circle cx="100" cy="118" r="9" fill="#D6402E"/>
-    <path d="M85 100 95 114 79 116Z" fill="#4C7A52"/>
-  </symbol>
-
-  <symbol id="img-pizza-local" viewBox="0 0 200 200">
-  <svg><use href="#icon-fb"/></svg>
-</a>" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="92" fill="#E7A94C"/>
-    <circle cx="100" cy="100" r="78" fill="url(#cheeseGrad)"/>
-    <circle cx="75" cy="72" r="9" fill="#B5401E"/><circle cx="128" cy="82" r="9" fill="#B5401E"/>
-    <circle cx="98" cy="130" r="9" fill="#B5401E"/>
-    <path d="M55 90 Q75 70 95 88 Q115 106 135 86 Q150 72 160 90" fill="none" stroke="#4C7A52" stroke-width="5" stroke-linecap="round"/>
-    <path d="M60 130 Q80 112 100 128 Q120 144 140 124" fill="none" stroke="#D6402E" stroke-width="4" stroke-linecap="round" opacity="0.75"/>
-    <path d="M65 62 74 76 58 78Z" fill="#4C7A52"/>
-  </symbol>
-
-  <symbol id="img-burger" viewBox="0 0 200 200">
-    <path d="M30 92 C30 55 62 34 100 34 C138 34 170 55 170 92 Z" fill="#E8A93F"/>
-    <g fill="#F6E28C"><circle cx="70" cy="55" r="3.5"/><circle cx="95" cy="48" r="3.5"/><circle cx="120" cy="52" r="3.5"/><circle cx="140" cy="64" r="3.5"/><circle cx="60" cy="70" r="3.5"/></g>
-    <path d="M26 96 174 96 168 112 32 112Z" fill="#5A8A3E"/>
-    <rect x="30" y="112" width="140" height="16" rx="4" fill="#F0C230"/>
-    <rect x="32" y="128" width="136" height="20" rx="3" fill="#6B4226"/>
-    <path d="M28 148 172 148 176 168 24 168Z" fill="#E8A93F"/>
-  </symbol>
-
-  <symbol id="img-fries" viewBox="0 0 200 200">
-    <path d="M55 90 40 172 160 172 145 90Z" fill="#EFECE3"/>
-    <path d="M55 90 40 172 60 172 68 90Z" fill="#D6402E"/>
-    <path d="M132 90 140 172 160 172 145 90Z" fill="#D6402E"/>
-    <g fill="#F0C230">
-      <rect x="66" y="34" width="12" height="64" rx="4" transform="rotate(-6 72 66)"/>
-      <rect x="84" y="24" width="12" height="74" rx="4"/>
-      <rect x="102" y="30" width="12" height="68" rx="4" transform="rotate(5 108 64)"/>
-      <rect x="118" y="40" width="12" height="58" rx="4" transform="rotate(10 124 69)"/>
-      <rect x="50" y="42" width="12" height="58" rx="4" transform="rotate(-12 56 71)"/>
-    </g>
-  </symbol>
-
-  <symbol id="img-pasta" viewBox="0 0 200 200">
-    <ellipse cx="100" cy="130" rx="80" ry="42" fill="#F3EFE3"/>
-    <ellipse cx="100" cy="122" rx="66" ry="30" fill="#FBF8EE"/>
-    <path d="M45 118c10-30 25-42 20-58M65 124c10-26 22-36 18-52M88 126c8-24 18-33 15-48M112 125c7-22 16-30 13-45M132 120c6-20 14-27 12-40" stroke="#E8C24A" stroke-width="6" stroke-linecap="round" fill="none"/>
-    <circle cx="90" cy="112" r="9" fill="#D6402E"/><circle cx="118" cy="120" r="7" fill="#D6402E"/>
-    <path d="M70 100 80 112 64 114Z" fill="#4C7A52"/>
-  </symbol>
-
-  <linearGradient id="cheeseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#FFE58A"/>
-    <stop offset="100%" stop-color="#F5C400"/>
-  </linearGradient>
-
-  <symbol id="icon-whatsapp" viewBox="0 0 32 32">
-    <path fill="currentColor" d="M16 2C8.3 2 2 8.3 2 16c0 2.7.8 5.3 2.2 7.5L2 30l6.7-2.1C10.8 29.2 13.3 30 16 30c7.7 0 14-6.3 14-14S23.7 2 16 2zm0 25.5c-2.4 0-4.7-.7-6.7-1.9l-.5-.3-4 1.2 1.2-3.9-.3-.5C4.5 20.2 3.8 18.1 3.8 16 3.8 9.3 9.3 3.8 16 3.8S28.2 9.3 28.2 16 22.7 27.5 16 27.5zm7-9.2c-.4-.2-2.3-1.1-2.6-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5-.1-.7-.1-.2-.9-2.2-1.2-3-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 4.9 3.4 1.3 3.4.9 4 .8.6-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.1-.3-.2-.7-.4z"/>
-  </symbol>
-  <symbol id="icon-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></symbol>
-  <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-  <symbol id="icon-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 2.5 3.4 5.7c-.9 4.6 1.6 9.4 5.4 13.2 3.8 3.8 8.6 6.3 13.2 5.4l3.2-3.2-4.9-4.1-1.9 1.9c-1.6-.5-3.4-1.7-4.9-3.2-1.5-1.5-2.7-3.3-3.2-4.9l1.9-1.9-4.1-4.9-.5-.5z"/></symbol>
-  <symbol id="icon-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></symbol>
-  <symbol id="icon-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
-  <symbol id="icon-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M14 2h2.6c.2 1.6 1.4 3 3.4 3.3V8c-1.4 0-2.7-.4-3.8-1.1v6.8a5.1 5.1 0 1 1-5.1-5.1c.3 0 .6 0 .9.1v2.7a2.4 2.4 0 1 0 1.7 2.3V2z"/></symbol>
-</svg>
-
-<!-- ============ Header ============ -->
-<header class="site-header" id="top">
-  <div class="container header-inner">
-    <a href="#top" class="brand">
-      <span class="brand-word">CHEEZI<span class="brand-drip" aria-hidden="true"></span></span>
-      <span class="brand-word brand-up">UP</span>
+  <header class="site-header" data-header>
+    <a class="brand" href="#home" aria-label="CHEEZI UP home">
+      <span class="brand-mark">CU</span>
+      <span>CHEEZI UP</span>
     </a>
 
-    <nav class="nav" id="nav">
+    <nav class="nav" data-nav aria-label="Primary navigation">
       <a href="#home">Home</a>
+      <a href="#experience">Experience</a>
       <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-      <a href="#menu" class="nav-cta">Order Now</a>
+      <a href="#visit">Visit</a>
     </nav>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <a class="header-cta" href="#menu">Reserve Taste</a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-  </div>
-</header>
+  </header>
 
-<!-- ============ Hero / Home ============ -->
-<section class="hero" id="home">
-  <div class="hero-pattern" aria-hidden="true"></div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="kicker">Premium dining · Fresh comfort food</p>
+          <h1>CHEEZI UP</h1>
+          <p class="hero-lede">A cinematic restaurant website rebuilt from the ground up for bold cravings, polished ordering, and a refined fast-casual dining experience.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">Explore Menu</a>
+            <a class="btn btn-secondary" href="#visit">Plan a Visit</a>
+          </div>
+        </div>
 
-  <div class="container hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow">Dipalpur City · Kasur Road, Pakistan</p>
-      <h1 class="hero-logo">
-        <span class="hl-line">CHEEZI</span>
-        <span class="hl-line hl-up">UP<span class="hl-drip" aria-hidden="true"></span></span>
-      </h1>
-      <p class="hero-tag">Premium Pizza. Bold Pakistani Flavor. Loaded Every Time.</p>
-      <p class="hero-sub">Wood-fired pizzas, crown crust, loaded burgers, crispy fries &amp; creamy pasta — made fresh, delivered hot.</p>
-      <div class="hero-actions">
-        <a href="#menu" class="btn btn-primary">Order Now</a>
-        <a href="#contact" class="btn btn-outline">Find Us</a>
+        <div class="hero-showcase reveal" aria-label="Signature CHEEZI UP presentation">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="plate">
+            <div class="pizza-art" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="floating-card card-top">Signature crust</div>
+          <div class="floating-card card-bottom">Freshly layered</div>
+        </div>
       </div>
-      <div class="hero-badges">
-        <span><strong>100%</strong> Fresh Daily</span>
-        <span><strong>30 min</strong> Fast Delivery</span>
-        <span><strong>Premium</strong> Ingredients</span>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="container split">
+        <div class="section-copy reveal">
+          <p class="kicker">Modern restaurant energy</p>
+          <h2>Premium visuals, smooth motion, and a menu-first layout.</h2>
+          <p>CHEEZI UP now feels elegant and contemporary with warm lighting, glass panels, bold typography, and quick paths from discovery to ordering.</p>
+        </div>
+        <div class="feature-grid reveal">
+          <article>
+            <span>01</span>
+            <h3>Chef-style cards</h3>
+            <p>Every item has a clean premium presentation with category filtering.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Mobile polished</h3>
+            <p>The experience adapts beautifully from large displays to phones.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Smooth ambience</h3>
+            <p>Subtle reveal, hover, and floating animations add depth without clutter.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Fast ordering</h3>
+            <p>Menu buttons prepare a WhatsApp order message instantly.</p>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-plate">
-        <img class="hero-photo" src="images/hero-pizza.jpg" alt="CHEEZI UP signature pizza" onerror="handleImgError(this)">
-        <svg class="hero-pizza item-img-fallback"><use href="#img-pizza-crown"/></svg>
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">The menu</p>
+          <h2>Keep the favorites. Elevate the presentation.</h2>
+          <p>Choose a category and order your CHEEZI UP pick in seconds.</p>
+        </div>
+
+        <div class="tabs reveal" role="tablist" aria-label="Menu categories">
+          <button class="tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="tab" data-filter="pizza" role="tab" aria-selected="false">Pizza</button>
+          <button class="tab" data-filter="burger" role="tab" aria-selected="false">Burgers</button>
+          <button class="tab" data-filter="fries" role="tab" aria-selected="false">Fries</button>
+          <button class="tab" data-filter="pasta" role="tab" aria-selected="false">Pasta</button>
+        </div>
+
+        <div class="menu-grid" data-menu-grid>
+          <article class="menu-card" data-category="pizza"><div class="menu-visual pizza"></div><div><p>Pizza</p><h3>Chicken Fajita Pizza</h3><span>Rs. 1,099</span></div><button data-item="Chicken Fajita Pizza" data-price="Rs. 1,099">Order</button></article>
+          <article class="menu-card" data-category="pizza"><div class="menu-visual pizza"></div><div><p>Pizza</p><h3>Chicken Tikka Pizza</h3><span>Rs. 1,149</span></div><button data-item="Chicken Tikka Pizza" data-price="Rs. 1,149">Order</button></article>
+          <article class="menu-card" data-category="pizza"><div class="menu-visual pizza"></div><div><p>Pizza</p><h3>Kabab Stuff Pizza</h3><span>Rs. 1,249</span></div><button data-item="Kabab Stuff Pizza" data-price="Rs. 1,249">Order</button></article>
+          <article class="menu-card" data-category="pizza"><div class="menu-visual crown"></div><div><p>Pizza</p><h3>Crown Crust Pizza</h3><span>Rs. 1,349</span></div><button data-item="Crown Crust Pizza" data-price="Rs. 1,349">Order</button></article>
+          <article class="menu-card" data-category="pizza"><div class="menu-visual pizza"></div><div><p>Pizza</p><h3>Cheese Pizza</h3><span>Rs. 899</span></div><button data-item="Cheese Pizza" data-price="Rs. 899">Order</button></article>
+          <article class="menu-card" data-category="pizza"><div class="menu-visual pizza"></div><div><p>Pizza</p><h3>Special CHEEZI UP Pizza</h3><span>Rs. 1,399</span></div><button data-item="Special CHEEZI UP Pizza" data-price="Rs. 1,399">Order</button></article>
+          <article class="menu-card" data-category="pizza"><div class="menu-visual pizza"></div><div><p>Pizza</p><h3>Local Pakistani Flavor Pizza</h3><span>Rs. 1,149</span></div><button data-item="Local Pakistani Flavor Pizza" data-price="Rs. 1,149">Order</button></article>
+          <article class="menu-card" data-category="burger"><div class="menu-visual burger"></div><div><p>Burger</p><h3>Zinger Burger</h3><span>Rs. 499</span></div><button data-item="Zinger Burger" data-price="Rs. 499">Order</button></article>
+          <article class="menu-card" data-category="burger"><div class="menu-visual burger"></div><div><p>Burger</p><h3>Chicken Burger</h3><span>Rs. 449</span></div><button data-item="Chicken Burger" data-price="Rs. 449">Order</button></article>
+          <article class="menu-card" data-category="burger"><div class="menu-visual burger"></div><div><p>Burger</p><h3>Cheese Burger</h3><span>Rs. 529</span></div><button data-item="Cheese Burger" data-price="Rs. 529">Order</button></article>
+          <article class="menu-card" data-category="burger"><div class="menu-visual burger"></div><div><p>Burger</p><h3>Special Burger</h3><span>Rs. 699</span></div><button data-item="Special Burger" data-price="Rs. 699">Order</button></article>
+          <article class="menu-card" data-category="fries"><div class="menu-visual fries"></div><div><p>Fries</p><h3>Regular Fries</h3><span>Rs. 249</span></div><button data-item="Regular Fries" data-price="Rs. 249">Order</button></article>
+          <article class="menu-card" data-category="fries"><div class="menu-visual fries"></div><div><p>Fries</p><h3>Masala Fries</h3><span>Rs. 299</span></div><button data-item="Masala Fries" data-price="Rs. 299">Order</button></article>
+          <article class="menu-card" data-category="fries"><div class="menu-visual fries"></div><div><p>Fries</p><h3>Cheese Fries</h3><span>Rs. 349</span></div><button data-item="Cheese Fries" data-price="Rs. 349">Order</button></article>
+          <article class="menu-card" data-category="fries"><div class="menu-visual fries"></div><div><p>Fries</p><h3>Loaded Fries</h3><span>Rs. 449</span></div><button data-item="Loaded Fries" data-price="Rs. 449">Order</button></article>
+          <article class="menu-card" data-category="pasta"><div class="menu-visual pasta"></div><div><p>Pasta</p><h3>Chicken Pasta</h3><span>Rs. 649</span></div><button data-item="Chicken Pasta" data-price="Rs. 649">Order</button></article>
+          <article class="menu-card" data-category="pasta"><div class="menu-visual pasta"></div><div><p>Pasta</p><h3>Creamy Pasta</h3><span>Rs. 699</span></div><button data-item="Creamy Pasta" data-price="Rs. 699">Order</button></article>
+          <article class="menu-card" data-category="pasta"><div class="menu-visual pasta"></div><div><p>Pasta</p><h3>Special Pasta</h3><span>Rs. 799</span></div><button data-item="Special Pasta" data-price="Rs. 799">Order</button></article>
+        </div>
       </div>
-      <div class="hero-chip chip-1">Crown Crust</div>
-      <div class="hero-chip chip-2">Extra Cheezi</div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ============ Menu ============ -->
-<section class="menu" id="menu">
-  <div class="container">
-    <p class="section-label center">Our Menu</p>
-    <h2 class="center reveal">Order Your CHEEZI UP Favorites</h2>
-    <p class="center menu-intro reveal">Prices are in PKR. Tap "Order" to send your pick straight to us on WhatsApp.</p>
-
-    <div class="menu-tabs" id="menuTabs" role="tablist">
-      <button class="tab active" data-category="pizza" role="tab" aria-selected="true">Pizza</button>
-      <button class="tab" data-category="burger" role="tab" aria-selected="false">Burgers</button>
-      <button class="tab" data-category="fries" role="tab" aria-selected="false">Fries</button>
-      <button class="tab" data-category="pasta" role="tab" aria-selected="false">Pasta</button>
-    </div>
-
-    <div class="menu-grid" id="menuGrid">
-
-      <!-- ===== Pizza ===== -->
-      <article class="item-card" data-category="pizza">
-        <div class="item-media"><img class="item-photo" src="images/chicken-fajita-pizza.jpg" alt="Chicken Fajita Pizza photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pizza-loaded"/></svg><span class="tag">Local Favorite</span></div>
-        <div class="item-body">
-          <h3>Chicken Fajita Pizza</h3>
-          <p>Grilled fajita chicken, bell peppers &amp; onions on a cheese base.</p>
-          <div class="item-footer"><span class="price">Rs. 1,099</span><button class="btn-order" data-item="Chicken Fajita Pizza" data-price="Rs. 1,099">Order</button></div>
+    <section class="visit" id="visit">
+      <div class="container visit-card reveal">
+        <div>
+          <p class="kicker">Visit CHEEZI UP</p>
+          <h2>Designed for late-night cravings, family tables, and quick premium orders.</h2>
         </div>
-      </article>
+        <a class="btn btn-primary" href="#menu">Start an Order</a>
+      </div>
+    </section>
+  </main>
 
-      <article class="item-card" data-category="pizza">
-        <div class="item-media"><img class="item-photo" src="images/chicken-tikka-pizza.jpg" alt="Chicken Tikka Pizza photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pizza-loaded"/></svg><span class="tag">Best Seller</span></div>
-        <div class="item-body">
-          <h3>Chicken Tikka Pizza</h3>
-          <p>Smoky tikka-marinated chicken loaded with mozzarella.</p>
-          <div class="item-footer"><span class="price">Rs. 1,149</span><button class="btn-order" data-item="Chicken Tikka Pizza" data-price="Rs. 1,149">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="pizza">
-        <div class="item-media"><img class="item-photo" src="images/kabab-stuff-pizza.jpg" alt="Kabab Stuff Pizza photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pizza-loaded"/></svg><span class="tag">Signature</span></div>
-        <div class="item-body">
-          <h3>Kabab Stuff Pizza</h3>
-          <p>Seekh kabab chunks, green chutney drizzle &amp; extra cheese.</p>
-          <div class="item-footer"><span class="price">Rs. 1,249</span><button class="btn-order" data-item="Kabab Stuff Pizza" data-price="Rs. 1,249">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="pizza">
-        <div class="item-media"><img class="item-photo" src="images/crown-crust-pizza.jpg" alt="Crown Crust Pizza photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pizza-crown"/></svg><span class="tag">Cheese-Stuffed</span></div>
-        <div class="item-body">
-          <h3>Crown Crust Pizza</h3>
-          <p>A cheese-stuffed golden crown crust wrapped around every slice.</p>
-          <div class="item-footer"><span class="price">Rs. 1,349</span><button class="btn-order" data-item="Crown Crust Pizza" data-price="Rs. 1,349">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="pizza">
-        <div class="item-media"><img class="item-photo" src="images/cheese-pizza.jpg" alt="Cheese Pizza photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pizza-standard"/></svg><span class="tag">Classic</span></div>
-        <div class="item-body">
-          <h3>Cheese Pizza</h3>
-          <p>Loads of melted mozzarella and cheddar, simply classic.</p>
-          <div class="item-footer"><span class="price">Rs. 899</span><button class="btn-order" data-item="Cheese Pizza" data-price="Rs. 899">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="pizza">
-        <div class="item-media"><img class="item-photo" src="images/special-cheezi-up-pizza.jpg" alt="Special CHEEZI UP Pizza photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pizza-loaded"/></svg><span class="tag">CHEEZI Special</span></div>
-        <div class="item-body">
-          <h3>Special CHEEZI UP Pizza</h3>
-          <p>Chicken, beef sausage, capsicum, olives — everything, loaded.</p>
-          <div class="item-footer"><span class="price">Rs. 1,399</span><button class="btn-order" data-item="Special CHEEZI UP Pizza" data-price="Rs. 1,399">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="pizza">
-        <div class="item-media"><img class="item-photo" src="images/local-pakistani-flavor-pizza.jpg" alt="Local Pakistani Flavor Pizza photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pizza-local"/></svg><span class="tag">Desi Style</span></div>
-        <div class="item-body">
-          <h3>Local Pakistani Flavor Pizza</h3>
-          <p>Chutney drizzle, desi spices &amp; a bold homegrown taste.</p>
-          <div class="item-footer"><span class="price">Rs. 1,149</span><button class="btn-order" data-item="Local Pakistani Flavor Pizza" data-price="Rs. 1,149">Order</button></div>
-        </div>
-      </article>
-
-      <!-- ===== Burgers ===== -->
-      <article class="item-card" data-category="burger">
-        <div class="item-media"><img class="item-photo" src="images/zinger-burger.jpg" alt="Zinger Burger photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-burger"/></svg><span class="tag">Best Seller</span></div>
-        <div class="item-body">
-          <h3>Zinger Burger</h3>
-          <p>Crispy fried fillet, spicy mayo &amp; a crunchy bite every time.</p>
-          <div class="item-footer"><span class="price">Rs. 499</span><button class="btn-order" data-item="Zinger Burger" data-price="Rs. 499">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="burger">
-        <div class="item-media"><img class="item-photo" src="images/chicken-burger.jpg" alt="Chicken Burger photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-burger"/></svg><span class="tag">Classic</span></div>
-        <div class="item-body">
-          <h3>Chicken Burger</h3>
-          <p>Grilled chicken patty, lettuce, tomato &amp; house sauce.</p>
-          <div class="item-footer"><span class="price">Rs. 449</span><button class="btn-order" data-item="Chicken Burger" data-price="Rs. 449">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="burger">
-        <div class="item-media"><img class="item-photo" src="images/cheese-burger.jpg" alt="Cheese Burger photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-burger"/></svg><span class="tag">Cheesy</span></div>
-        <div class="item-body">
-          <h3>Cheese Burger</h3>
-          <p>Double cheese slices melted over a juicy grilled patty.</p>
-          <div class="item-footer"><span class="price">Rs. 529</span><button class="btn-order" data-item="Cheese Burger" data-price="Rs. 529">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="burger">
-        <div class="item-media"><img class="item-photo" src="images/special-burger.jpg" alt="Special Burger photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-burger"/></svg><span class="tag">CHEEZI Special</span></div>
-        <div class="item-body">
-          <h3>Special Burger</h3>
-          <p>Double patty, cheese, beef strip &amp; our signature CHEEZI sauce.</p>
-          <div class="item-footer"><span class="price">Rs. 699</span><button class="btn-order" data-item="Special Burger" data-price="Rs. 699">Order</button></div>
-        </div>
-      </article>
-
-      <!-- ===== Fries ===== -->
-      <article class="item-card" data-category="fries">
-        <div class="item-media"><img class="item-photo" src="images/regular-fries.jpg" alt="Regular Fries photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-fries"/></svg><span class="tag">Classic</span></div>
-        <div class="item-body">
-          <h3>Regular Fries</h3>
-          <p>Golden, crispy and lightly salted.</p>
-          <div class="item-footer"><span class="price">Rs. 249</span><button class="btn-order" data-item="Regular Fries" data-price="Rs. 249">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="fries">
-        <div class="item-media"><img class="item-photo" src="images/masala-fries.jpg" alt="Masala Fries photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-fries"/></svg><span class="tag">Spicy</span></div>
-        <div class="item-body">
-          <h3>Masala Fries</h3>
-          <p>Tossed in our tangy house masala spice mix.</p>
-          <div class="item-footer"><span class="price">Rs. 299</span><button class="btn-order" data-item="Masala Fries" data-price="Rs. 299">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="fries">
-        <div class="item-media"><img class="item-photo" src="images/cheese-fries.jpg" alt="Cheese Fries photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-fries"/></svg><span class="tag">Cheesy</span></div>
-        <div class="item-body">
-          <h3>Cheese Fries</h3>
-          <p>Smothered in warm, melted cheese sauce.</p>
-          <div class="item-footer"><span class="price">Rs. 349</span><button class="btn-order" data-item="Cheese Fries" data-price="Rs. 349">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="fries">
-        <div class="item-media"><img class="item-photo" src="images/loaded-fries.jpg" alt="Loaded Fries photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-fries"/></svg><span class="tag">CHEEZI Special</span></div>
-        <div class="item-body">
-          <h3>Loaded Fries</h3>
-          <p>Cheese, grilled chicken bits, sauces &amp; a jalapeño kick.</p>
-          <div class="item-footer"><span class="price">Rs. 449</span><button class="btn-order" data-item="Loaded Fries" data-price="Rs. 449">Order</button></div>
-        </div>
-      </article>
-
-      <!-- ===== Pasta ===== -->
-      <article class="item-card" data-category="pasta">
-        <div class="item-media"><img class="item-photo" src="images/chicken-pasta.jpg" alt="Chicken Pasta photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pasta"/></svg><span class="tag">Classic</span></div>
-        <div class="item-body">
-          <h3>Chicken Pasta</h3>
-          <p>Penne tossed with grilled chicken in a rich tomato sauce.</p>
-          <div class="item-footer"><span class="price">Rs. 649</span><button class="btn-order" data-item="Chicken Pasta" data-price="Rs. 649">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="pasta">
-        <div class="item-media"><img class="item-photo" src="images/creamy-pasta.jpg" alt="Creamy Pasta photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pasta"/></svg><span class="tag">Creamy</span></div>
-        <div class="item-body">
-          <h3>Creamy Pasta</h3>
-          <p>White sauce pasta with garlic, cream &amp; parmesan.</p>
-          <div class="item-footer"><span class="price">Rs. 699</span><button class="btn-order" data-item="Creamy Pasta" data-price="Rs. 699">Order</button></div>
-        </div>
-      </article>
-
-      <article class="item-card" data-category="pasta">
-        <div class="item-media"><img class="item-photo" src="images/special-pasta.jpg" alt="Special Pasta photo" onerror="handleImgError(this)"><svg class="item-img item-img-fallback"><use href="#img-pasta"/></svg><span class="tag">CHEEZI Special</span></div>
-        <div class="item-body">
-          <h3>Special Pasta</h3>
-          <p>Chicken, beef strips &amp; a cheesy blend of red and white sauce.</p>
-          <div class="item-footer"><span class="price">Rs. 799</span><button class="btn-order" data-item="Special Pasta" data-price="Rs. 799">Order</button></div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ Contact ============ -->
-<section class="contact" id="contact">
-  <div class="container contact-inner">
-    <div class="contact-text reveal">
-      <p class="section-label light">Visit or Order</p>
-      <h2>Find CHEEZI UP in Dipalpur City</h2>
-      <p>Walk in, call ahead, or order straight to your door on WhatsApp.</p>
-
-      <ul class="contact-list">
-        <li><svg class="c-icon"><use href="#icon-pin"/></svg> CHEEZI UP, Dipalpur City, Kasur Road, Pakistan</li>
-        <li><svg class="c-icon"><use href="#icon-phone"/></svg> +92 3106044622</li>
-        <li><svg class="c-icon"><use href="#icon-clock"/></svg> Open Daily · 12:00 PM – 1:00 AM</li>
-      </ul>
-
-      <div class="contact-actions">
-        <a href="https://wa.me/923106044622?text=Hi%20CHEEZI%20UP!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener" class="btn btn-whatsapp">
-          <svg class="c-icon"><use href="#icon-whatsapp"/></svg> Order on WhatsApp
-        </a>
-        <a href="tel:+923106044622" class="btn btn-outline-light">
-          <svg class="c-icon"><use href="#icon-phone"/></svg> Call Us
-        </a>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#home"><span class="brand-mark">CU</span><span>CHEEZI UP</span></a>
+        <p>A premium restaurant interface for pizzas, burgers, fries, and pasta — rebuilt fresh with a modern visual identity.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="#experience">Experience</a>
+        <a href="#menu">Menu</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <div>
+        <h3>Favorites</h3>
+        <p>Crown Crust Pizza</p>
+        <p>Special Burger</p>
+        <p>Loaded Fries</p>
+      </div>
+      <div>
+        <h3>Order</h3>
+        <p>WhatsApp-ready item ordering</p>
+        <p>Fresh, hot, and made to satisfy</p>
       </div>
     </div>
+    <div class="footer-bottom">© <span data-year></span> CHEEZI UP. Crafted for a premium restaurant experience.</div>
+  </footer>
 
-    <div class="contact-map reveal">
-      <iframe
-        title="CHEEZI UP location map"
-        src="https://maps.google.com/maps?q=Dipalpur%20City%2C%20Kasur%20Road%2C%20Pakistan&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<!-- ============ Footer ============ -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <a href="#top" class="brand footer-logo">
-        <span class="brand-word">CHEEZI<span class="brand-drip" aria-hidden="true"></span></span>
-        <span class="brand-word brand-up">UP</span>
-      </a>
-      <p>Premium pizza, burgers, fries &amp; pasta — made fresh in Dipalpur City, Kasur Road.</p>
-      <div class="footer-social">
-       <a href="https://web.facebook.com/profile.php?id=100076609179392" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-  <svg><use href="#icon-fb"/></svg>
-</a>
-        <a href="#" aria-label="Instagram"><svg><use href="#icon-ig"/></svg></a>
-        <a href="#" aria-label="TikTok"><svg><use href="#icon-tiktok"/></svg></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="#home">Home</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Visit Us</h4>
-      <p><svg class="c-icon small"><use href="#icon-pin"/></svg> Dipalpur City, Kasur Road, Pakistan</p>
-      <p><svg class="c-icon small"><use href="#icon-phone"/></svg> +92 3106044622</p>
-      <p><svg class="c-icon small"><use href="#icon-clock"/></svg> Daily · 12 PM – 1 AM</p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© <span id="year"></span> CHEEZI UP. All rights reserved.</p>
-  </div>
-</footer>
-
-<a href="https://wa.me/923106044622?text=Hi%20CHEEZI%20UP!%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Order on WhatsApp">
-  <svg><use href="#icon-whatsapp"/></svg>
-</a>
-
-<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-
-<script src="script.js"></script>
+  <a class="whatsapp-float" data-whatsapp href="#" aria-label="Order on WhatsApp">☘</a>
+  <script src="script.js"></script>
 </body>
 </html>
